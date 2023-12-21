@@ -2,6 +2,8 @@ if ! test -f ~/z/z.sh; then
 	echo "[+] Installing z search...":
 	git clone https://github.com/rupa/z.git
 	mv z ~
+	echo ". ~/z/z.sh" >> ~/.bashrc
+	source ~/.bashrc
 else
 	echo "[!] z search is already installed"
 fi
