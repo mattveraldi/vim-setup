@@ -1,3 +1,10 @@
+if ! test -f ~/z/z.sh; then
+	echo "[+] Installing z search...":
+	git clone https://github.com/rupa/z.git
+	mv z ~
+else
+	echo "[!] z search is already installed"
+fi
 if ! test -f $NVM_DIR/nvm.sh; then
 	echo "[+] Installing node...":
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
