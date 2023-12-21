@@ -1,12 +1,33 @@
-echo "[+] Installing node...":
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-nvm install --lts
-echo "[+] Installing .vimrc"
-cp .vimrc ~/.vimrc
-echo "[+] Installing plug..."
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-echo "[+] Installing pip..."
-sudo apt install python3-pip
-echo "[+] Installing black..."
-sudo apt install black
+if ! test -f $NVM_DIR/nvm.sh; then
+	echo "[+] Installing node...":
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+	nvm install --lts
+else
+	echo "[!] node is already installed"
+fi
+
+if ! test -f ~/.vimrc; then
+	echo "[+] Installing .vimrc"
+	cp .vimrc ~/.vimrc
+else
+	echo "[!] .vimrc is already installed"
+fi
+
+if ! test -f ~/.vim/autoload/plug.vim; then
+	echo "[+] Installing plug..."
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+else
+	echo "[!] plug is already installed"
+fi
+
+if ! command -v pip; then
+	echo "[+] Installing pip..."
+	sudo apt install python3-pip
+	echo "[+] Installing black using pip..."
+	sudo apt install black
+else
+	echo "[!] pip is already installed"
+fi
+
+
 
