@@ -1,11 +1,17 @@
+set nocompatible
+filetype off
+set encoding=utf-8
+set t_Co=256
+
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'joshdick/onedark.vim'
 Plug 'psf/black'
+Plug 'wuelnerdotexe/vim-enfocado'
 call plug#end()
 
-syntax on
-colorscheme onedark
+set background=dark
+let g:enfocado_style = 'nature'
+colorscheme enfocado
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
