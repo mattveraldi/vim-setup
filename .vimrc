@@ -1,6 +1,10 @@
+set nocompatible
+filetype off
+set encoding=utf-8
+set t_Co=256
+
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'joshdick/onedark.vim'
 Plug 'psf/black'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
