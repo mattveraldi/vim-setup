@@ -38,5 +38,13 @@ else
 	echo "[!] pip is already installed"
 fi
 
+if ! command -v ripgrep; then
+	echo "[+] Installing ripgrep..."
+	curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
+	sudo dpkg -i ripgrep_13.0.0_amd64.deb
+else
+	echo "[!] ripgrep is already installed"
+fi
+
 
 
