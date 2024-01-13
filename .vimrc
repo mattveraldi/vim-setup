@@ -8,12 +8,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'psf/black'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'lunarvim/darkplus.nvim'
 call plug#end()
 
 let g:mapleader=" "
 
 syntax on
-colorscheme onedark
+colorscheme darkplus 
 
 set number
 set relativenumber
