@@ -4,22 +4,38 @@ set encoding=utf-8
 set t_Co=256
 
 call plug#begin()
+Plug 'lunarvim/darkplus.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'psf/black'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'lunarvim/darkplus.nvim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-fugitive'
+" JavaScript
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
 
 let g:mapleader=" "
+let g:coc_global_extensions=[
+			\'coc-tsserver',
+			\'coc-eslint',
+			\'coc-prettier',
+			\'coc-json',
+			\'coc-pyright',
+      \]
 
 syntax on
 colorscheme darkplus 
 
+set background=dark
 set number
 set relativenumber
 set ts=2
 set sw=2
+set expandtab
+set mouse=a
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
@@ -181,10 +197,13 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-" Netrw
-nnoremap <silent><nowait> <space>ee :<C-u>Lexplore<CR>
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nmap <leader>f  <Plug>(coc-format-selected)
+"" Editor
+nmap <leader>w <Plug>:w<cr>
+nmap <leader>q <Plug>:q<cr>
+nmap <leader>e <Plug>:Lexplore<cr>
