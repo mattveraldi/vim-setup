@@ -46,5 +46,13 @@ else
 	echo "[!] ripgrep is already installed"
 fi
 
+if ! command -v gopls; then
+	echo "[+] Installing gopls..."
+  go get golang.org/x/tools/gopls@latest
+else
+	echo "[!] gopls is already installed"
+fi
+
+
 
 
