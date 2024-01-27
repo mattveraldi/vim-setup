@@ -1,1 +1,1 @@
-This is my vim configuration to work with python.
+This is my vim configuration.
