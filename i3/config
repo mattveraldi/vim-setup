@@ -198,3 +198,17 @@ bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t ima
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
+# Audio Shortcuts
+bindsym $mod+F2 exec amixer set Master -q 5%-
+bindsym $mod+F3 exec amixer set Master -q 5%+
+
+# Brightness
+bindsym $mod+F5 exec brightnessctl -d "amdgpu_bl0" s 10%-
+bindsym $mod+F6 exec brightnessctl -d "amdgpu_bl0" s 10%+
+
+# Lock screen
+bindsym Ctrl+$mod+L exec i3lock
+
+# My apps
+bindsym Ctrl+$mod+O exec obs &
+bindsym Ctrl+$mod+F exec firefox &
